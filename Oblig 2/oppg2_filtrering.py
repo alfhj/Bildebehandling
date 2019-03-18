@@ -56,14 +56,6 @@ def butterworth(d, d0, n=2, **kwargs):
 def laplace(d, **kwargs):
 	# laplacefilter
 	return -4 * numpy.pi ** 2 * d ** 2
-	
-def dist_from_center(shape):
-	(h, w) = shape
-	(y, x) = numpy.mgrid[:h, :w]
-	# senterpixelen er ned til høyre i bilder med partall som høyde/bredde
-	# bruker derfor heltallsdivisjon
-	out = numpy.sqrt((y - h // 2) ** 2 + (x - w // 2) ** 2)
-	return out
 
 def radial_filter(function, shape, d0, **kwargs):
 	# lager et radialt/sirkulært filter med gitt funksjon
