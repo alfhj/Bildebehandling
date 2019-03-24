@@ -1,11 +1,10 @@
 from skimage import io, util
-import sys
 import numpy
 
 def morph(image, elements, erode=True):
 	(ih, iw) = image.shape
 	(eh, ew) = elements.shape
-	padded = util.pad(image, (eh//2, ew//2), mode="edge")
+	padded = util.pad(image, (eh//2, ew//2), mode="constant", constant_values=0)
 	out = numpy.zeros((ih, iw), dtype="bool")
 	for i in range(ih):
 		for j in range(iw):
@@ -23,7 +22,7 @@ elems = util.img_as_bool(io.imread("itd33517_examples/se_cross.pbm", as_gray=Tru
 ero = morph(img, elems, True)
 #open = morph(ero, elems, False)
 bound = img - ero
-out = open
+out = bound
 
 #io.imsave("binary2_erosion.png", out)
 io.imshow(out)

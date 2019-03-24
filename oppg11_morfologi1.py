@@ -1,9 +1,6 @@
 from skimage import io, util, morphology
-import sys
 import numpy
 import scipy
-
-
 
 #img = util.img_as_bool(io.imread("itd33517_examples/binary2.pbm", as_gray=True))
 #img = util.img_as_bool(io.imread("bilder/letters-and-objects.tif", as_gray=True))

@@ -1,5 +1,4 @@
 from skimage import io, util, morphology
-import sys
 import numpy
 
 # d: diameter
@@ -22,28 +21,28 @@ def morph(image, se, erode=True):
 	return out
 
 def open(image, se):
-	eroded = morph(img, se, True)
+	eroded = morph(image, se, True)
 	out = morph(eroded, se, False)
 	return out
 
 def close(image, se):
-	dilated = morph(img, se, False)
+	dilated = morph(image, se, False)
 	out = morph(dilated, se, True)
 	return out
 
 def blur(image, se):
-	img = open(image, se)
-	out = close(img, se)
-	return img
+	out = open(image, se)
+	out = close(out, se)
+	return out
 
 def blur1(image, se):
-	img = close(image, se)
-	out = open(img, se)
-	return img
+	out = close(image, se)
+	out = open(out, se)
+	return out
 
 def gradient(image, se):
-	eroded = morph(img, se, True)
-	dilated = morph(img, se, False)
+	eroded = morph(image, se, True)
+	dilated = morph(image, se, False)
 	out = dilated - eroded
 	return out
 
