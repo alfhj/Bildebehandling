@@ -31,6 +31,14 @@ def laplace_gauss_filter(w, sigma):
 
 img = util.img_as_float(io.imread("bilder/lena.tif", as_gray=True))
 (h, w) = img.shape
+
+# Sobel
+#sx = convolve(blur, sobelx)
+#sy = convolve(blur, sobely)
+#s = numpy.sqrt(sx ** 2 + sy ** 2)
+#thres = s > 0.3
+
+# Marr-Hildreth
 #gauss = gauss_filter(7, 3.0)
 #blur = convolve(img, gauss)
 #marr1 = convolve(blur, laplace2)
