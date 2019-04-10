@@ -1,5 +1,4 @@
-from math import isclose
-from skimage import io, util, morphology
+from skimage import io, util
 import numpy
 import scipy
 
